@@ -1,0 +1,55 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	    http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+	    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+	  http://www.springframework.org/schema/aop
+      http://www.springframework.org/schema/aop/spring-aop.xsd
+     http://www.springframework.org/schema/tx
+     https://www.springframework.org/tx/spring-tx.xsd">
+
+       <mvc:annotation-driven />
+	 <!-- Enable Package scan    -->
+    
+  <context:component-scan base-package="com.spring" />
+  
+    
+    
+<!-- register the DataSource Bean  -->
+  
+<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+<property name="url" value="jdbc:oracle:thin:@localhost:1521/xe" />
+<property name="username" value="hr" />
+<property name="password" value="hr" />
+</bean>
+ --> 
+ <!-- Hibernate 4 SessionFactory Bean definition -->
+
+<!-- <bean id="hibernate4AnnotatedSessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+<property name="dataSource" ref="dataSource" />
+<property name="annotatedClasses">
+<list>
+<value>com.spring.model.User</value>
+</list>
+</property>
+<property name="hibernateProperties">
+<props>
+<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect </prop>
+<prop key="hibernate.hbm2ddl.auto">update</prop>
+<prop key="hibernate.show_sql">true</prop>
+</props>
+</property>
+</bean>
+ -->     
+
+</beans>
+	
+	
+	
+	
+	
+	     

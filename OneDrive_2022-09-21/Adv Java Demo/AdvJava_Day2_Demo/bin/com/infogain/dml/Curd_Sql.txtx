@@ -1,0 +1,6 @@
+drop table employee;
+create table employee (empid number,name varchar2(20),address varchar2(20),salary number(7,2));
+insert into employee values(101,'Amit','GGN',68990.89);
+insert into employee values(102,'Amita','Noida',78990.89);
+commit;
+select * from employee;

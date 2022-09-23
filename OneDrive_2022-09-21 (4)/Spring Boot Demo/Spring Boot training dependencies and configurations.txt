@@ -1,0 +1,331 @@
+
+Spring Boot Training Day Wise Dependencies and Configuration 
+-------------------------------------------------------------
+
+Day-1 Dependencies
+-------------------------
+<!-- Dependencies Required for creating Spring MVC and Spring Rest application -->
+
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+
+<!-- Dependencies Required for auto restart of Server -->
+
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-devtools</artifactId>
+<scope>runtime</scope>
+<optional>true</optional>
+</dependency>
+
+changing the server port
+---------------------------
+
+server.port=8082
+
+Dependencies for JSP as view
+-------------------------------
+<dependency>
+<groupId>org.apache.tomcat.embed</groupId>
+<artifactId>tomcat-embed-jasper</artifactId>
+</dependency>
+
+<dependency>
+<groupId>javax.servlet</groupId>
+<artifactId>jstl</artifactId>
+</dependency>
+
+Register View Resolver
+------------------------
+
+@Configuration
+public class BeanConfiguration {
+@Bean
+public InternalResourceViewResolver  setupResolver() {
+InternalResourceViewResolver resolver=new InternalResourceViewResolver();
+resolver.setPrefix("/WEB-INF/view/");
+resolver.setSuffix(".jsp");
+return resolver;
+}
+}
+
+
+<!-- Dependency Required for XML Response using jackson -->
+
+<dependency>
+<groupId>com.fasterxml.jackson.dataformat</groupId>
+<artifactId>jackson-dataformat-xml</artifactId>
+</dependency>
+
+
+
+Spring Boot Day-2 dependency and Configuration 
+-------------------------------------------------
+<!-- Dependency Required for Spring Data JPA-->
+
+	
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+
+
+# Download Ojdbc Jar 
+-------------------------
+<!-- Dependency Required for Ojdbc Jar -->
+
+<dependency>
+<groupId>com.oracle.ojdbc</groupId>
+<artifactId>ojdbc8</artifactId>
+<version>19.3.0.0</version>$NO-MVN-MAN-VER$
+</dependency>
+
+#  Configure the Datasource conating database information
+
+#Oracle settings
+----------------------
+
+#spring.datasource.url=jdbc:oracle:thin:@localhost:1521:xe
+#spring.datasource.username=system
+#spring.datasource.password=oracle
+#spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
+
+
+#Spring JPA/Hiernate  properties  
+-----------------------------------
+#spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.OracleDialect
+#spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.Oracle10gDialect
+#spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.Oracle9iDialect
+#spring.jpa.show-sql = true
+#spring.jpa.hibernate.ddl-auto = update
+
+
+Spring Boot Day-4 dependency and Configuration 
+--------------------------------------------------
+
+
+<!-- Dependency Required for HAL Browser-->
+
+<dependency>
+<groupId>org.springframework.data</groupId>
+<artifactId>spring-data-rest-hal-explorer</artifactId>
+</dependency>	
+			
+
+Day-5 Dependency
+-----------------------
+
+<!-- Dependency Required for Spring Boot Actuator-->
+
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+		 	
+<!-- Dependency Required for Spring Boot Security -->	
+		
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+
+<!-- Dependency Required for Springdoc -->	
+
+<dependency>
+<groupId>org.springdoc</groupId>
+<artifactId>springdoc-openapi-ui</artifactId>
+<version>1.5.7</version>
+</dependency>
+
+
+#Actuator Configuration
+--------------------------------
+management.endpoint.health.show-details=always
+
+#info.name= Test Spring Service
+#info.more.detail= This is a demo for Spring Actuator
+#info.app.version=1.0.0
+#Expose All Actuator Endpoints
+#management.endpoints.web.exposure.include=*
+
+#Execule expose of particular endpointd
+#management.endpoints.web.exposure.exclude=env,beans
+
+#Expose of particular endpointd
+#management.trace.http.enabled: true
+#management.endpoints.web.exposure.include=env,beans
+
+
+
+
+Override the default security Configuration
+----------------------------------------------
+@Configuration
+public class ActutaorSecurity extends WebSecurityConfigurerAdapter {
+	// overding security
+@Override
+protected void configure(HttpSecurity http) throws Exception {
+http.requestMatcher(EndpointRequest.toAnyEndpoint()).authorizeRequests().anyRequest()
+.hasRole("USER").and().httpBasic();
+}
+	// Registering in memory user.
+		
+@Override
+protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+auth.inMemoryAuthentication().withUser("admin").password("{noop}admin").authorities("ROLE_USER");
+}
+}
+
+
+
+Default URI for OpenAPI
+-----------------------
+http://localhost:8082/v3/api-docs/
+http://localhost:8082/v3/api-docs.yaml
+http://localhost:8082/swagger-ui.html
+http://localhost:8082/swagger-ui
+
+
+
+#Swagger Configuration
+------------------------------------
+#springdoc.swagger-ui.path=/swagger-ui
+#springdoc.api-docs.path=/api-docs
+
+http://localhost:8082/api-docs
+http://localhost:8082/api-docs.yaml
+http://localhost:8082/swagger-ui
+
+Changing Default Information
+---------------------------------
+@OpenAPIDefinition(info=@Info(title="User API",version="v1",contact=@Contact(name="Saurabh",email="admin@userapi.com")))
+For Rest Controller
+@Tag(name="MyUserController" ,description = "Controler for user API for User mangement")
+@Operation(summary = "Add a new User",description = "Method to add a new user")
+
+
+
+		 
+
+Table for Book Entity.
+-------------------------
+
+drop table Book_Info;
+create table Book_Info (b_Id number primary key ,author varchar2(20), name varchar2(20), price number(7));
+
+insert into Book_Info values (101,'Gausling','Java',9000);
+insert into Book_Info values (102,'Andy','Dbms',7000);
+insert into Book_Info values (103,'Amit','C',6000);
+insert into Book_Info values (104,'Ravi','C',7000);
+insert into Book_Info values (105,'Manik','java',7000);
+insert into Book_Info values (106,'Mohit','java',7000);
+insert into Book_Info values (107,'Amit','Spring',6000);
+commit;
+
+select * from Book_Info
+
+
+Book Crud Repo URI
+---------------------------
+
+http://localhost:8082/crudapi/books
+
+Post Request
+http://localhost:8082/crudapi/books
+ {
+        "bookId": 108,
+        "name": "React",
+        "author": "Brain",
+        "price": 7000
+    }
+
+http://localhost:8082/crudapi/books/107
+
+Book Reposistory
+----------------
+http://localhost:8082/repo/bname?name=Spring
+http://localhost:8082/repo/authororname?author=Amit&name=Spring
+http://localhost:8082/repo/findbyname?name=Java
+http://localhost:8082/repo/findbyauth?author=Amit
+http://localhost:8082/repo/count?name=C
+http://localhost:8082/repo/delete?name=React
+http://localhost:8082/repo/bjpql
+http://localhost:8082/repo/bsql
+http://localhost:8082/repo/listbyauthor?author=Amit
+http://localhost:8082/repo/mybook?p=6000
+
+
+Paginingandsorting Repo URI
+---------------------------------
+http://localhost:8082/sortapi/allbooks
+http://localhost:8082/sortapi/books?pageNo=0
+http://localhost:8082/sortapi/books?pageNo=2
+
+Here entity can be sorted on any entity property
+
+http://localhost:8082/sortapi/books1?pageNo=1&sortKey=price
+
+Use in case of declared Method inside Reposistory interface
+
+http://localhost:8082/sortapi/books2?name=C&pageNo=0
+http://localhost:8082/sortapi/books3?author=Amit
+
+
+deleteIn Batch
+
+http://localhost:8082/bokjpa/deleteinbatch
+
+[
+    {
+        "bookId": 101,
+        "name": "Java",
+        "author": "Gausling",
+        "price": 9000
+    },
+    {
+        "bookId": 102,
+        "name": "Dbms",
+        "author": "Andy",
+        "price": 7000
+    }
+    ]
+
+
+
+Table for Assocation Mapping 
+----------------------------
+
+drop table Udetails;
+
+create table Udetails (UDID number(10) primary key,EMAIL varchar2(20),NAME varchar2(20));
+insert into Udetails values(101, 'Adam@gmail.com', 'Adam');
+insert into Udetails values(102,'Eve@gmail.com','Eve');
+insert into Udetails values(103, 'Jack@@gmail.com','Jack');
+commit;
+select * from Udetails
+
+
+drop table pdetails;
+
+create table Pdetails(PDID number (10) primary key , DESCRIPTION VARCHAR2(255) ,
+UPDID NUMBER(10) NOT NULL , FOREIGN KEY(UPDID) REFERENCES Udetails(UDID));
+insert into Pdetails values(201,'My First Post',101);
+insert into Pdetails values(202,'My Second Post',101);
+commit;
+
+select * from pdetails
+
+
+URI for Assocation Mapping
+------------------------
+http://localhost:8082/jpa/users
+http://localhost:8082/jpa/users1?id=101
+http://localhost:8082/jpa/users/101/posts
+http://localhost:8082/jpa/users/102/posts
+
+{
+"description": "My First Post"
+ }
+

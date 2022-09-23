@@ -1,0 +1,2 @@
+Uri in case Spring MVC
+http://localhost:8082/emp/greet

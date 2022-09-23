@@ -1,0 +1,31 @@
+CorrelationId: 9ba845d7-efd3-4b2d-b95d-0c506a88d14b
+UTC DateTime: 09/21/2022 05:35:33
+
+The following files/folders have not been downloaded
+0. Core Java- Demo Files/Java Part 5 Demo/Additional Demo/daemonthread/MyThread.java
+1. Core Java- Demo Files/Java Part 5 Demo/Additional Demo/daemonthread/TestDaemon.java
+2. Core Java- Demo Files/Java Part 5 Demo/Additional Demo/daemonthread/ThreadGroupTest.java
+3. Core Java- Demo Files/Java Part 5 Demo/itc/Business.java
+4. Core Java- Demo Files/Java Part 5 Demo/itc/InterThreadCommTest.java
+5. Core Java- Demo Files/Java Part 5 Demo/itc/MyThread.java
+6. Core Java- Demo Files/Java Part 5 Demo/synchronization/DisplayMessage.java
+7. Core Java- Demo Files/Java Part 5 Demo/synchronization/MyThread1.java
+8. Core Java- Demo Files/Java Part 5 Demo/synchronization/MyThread2.java
+9. Core Java- Demo Files/Java Part 5 Demo/synchronization/StaticSyncTest.java
+10. Core Java- Demo Files/Java Part 5 Demo/synchronization/SyncTest.java
+11. Core Java- Demo Files/Java Part 5 Demo/thread/SalaryInc.java
+12. Core Java- Demo Files/Java Part 5 Demo/thread/SalaryIncrementer.java
+13. Core Java- Demo Files/Java Part 5 Demo/thread/SalIncrementer.java
+14. Core Java- Demo Files/Java Part3 Demo/abstractdemo/AbstractDemo.java
+15. Core Java- Demo Files/Java Part3 Demo/abstractdemo/Employee.java
+16. Core Java- Demo Files/Java Part3 Demo/abstractdemo/RegularEmplyoee.java
+17. Core Java- Demo Files/Java Part3 Demo/abstractdemo/WeeklyPaidEmployee.java
+18. Core Java- Demo Files/Java Part3 Demo/interfacedemo/InterfaceDemo.java
+19. Core Java- Demo Files/Java Part3 Demo/interfacedemo/ISalary.java
+20. Core Java- Demo Files/Java Part3 Demo/interfacedemo/RegularEmplyoee.java
+21. Core Java- Demo Files/Java Part3 Demo/interfacedemo/WeeklyPaidEmployee.java
+22. Core Java- Demo Files/Java Part3 Demo/Remaining Demos/admin/Induction.java
+23. Core Java- Demo Files/Java Part3 Demo/Remaining Demos/exceptiondemo/CompileTimeException.java
+24. Core Java- Demo Files/Java Part3 Demo/Remaining Demos/exceptiondemo/DataInputStreamDemo.java
+25. Core Java- Demo Files/Java Part3 Demo/Remaining Demos/exceptiondemo/ExceptionDemo.java
+26. Core Java- Demo Files/Java Part3 Demo/Remaining Demos/exceptiondemo/SalaryChecker.java

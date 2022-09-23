@@ -1,0 +1,27 @@
+http://localhost:8082/UserManagementService/userapi/greet
+http://localhost:8082/UserManagementService/userapi/user
+http://localhost:8082/UserManagementService/userapi/users
+
+Use in case of POST request
+-------------------------------
+http://localhost:8082/UserManagementService/userapi/users
+
+{
+"id": 1,
+"name": "Methu",
+"email": "methu@Gmail.com"
+}
+
+Use in case of Hibernate POST request
+---------------------------------------
+http://localhost:8082/UserManagementService/dao/user
+
+{
+"id": 1,
+"name": "Methu",
+"email": "methu@Gmail.com"
+}
+
+Use in case of Hibernate Get request
+
+http://localhost:8082/UserManagementService/dao/user

@@ -1,0 +1,18 @@
+// To create
+create or replace
+procedure MYPROC(id varchar2) is
+begin delete from jobs where job_id=id;
+end MYPROC;
+// To execute
+execute MYPROC('Ac')
+
+
+// Table
+drop table jobs;   	 
+create table jobs (JOB_ID  VARCHAR2(30), 
+JOB_TITLE       VARCHAR2(30), 
+MIN_SALARY      NUMBER ,      
+MAX_SALARY      NUMBER);       
+insert into jobs values('Ac','Acountant',45000,60000);
+insert into jobs values('Hr','Human Resource',50000,70000);
+select * from jobs
